@@ -1,2 +1,2 @@
 # Json Parser
-Implementação de um parser JSON simples feito em Java para fins de estudo.
+Implementation of a JSON parser and validator made in Java for study purposes.
