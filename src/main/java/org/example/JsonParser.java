@@ -2,6 +2,8 @@ package org.example;
 
 import org.example.json.*;
 
+import java.util.Set;
+
 import static java.lang.Character.isDigit;
 
 public class JsonParser {
@@ -12,6 +14,7 @@ public class JsonParser {
     private int currentTokenPosition;
 
     private static final String INVALID_JSON_MESSAGE = "Invalid JSON";
+    private static final Set<Character> SKIP_CHARACTERS = Set.of(' ', '\n', '\t');
 
     public Json parseJson(String jsonString) {
         jsonStringLength = jsonString.length();
@@ -26,7 +29,7 @@ public class JsonParser {
         currentTokenPosition++;
         if(notFinished()) {
             currentChar = jsonString.charAt(currentTokenPosition);
-            if(currentChar == ' ') advance();
+            if(SKIP_CHARACTERS.contains(currentChar)) advance();
         }
     }
 
